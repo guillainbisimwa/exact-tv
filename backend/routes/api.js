@@ -294,4 +294,30 @@ router.get('/prod/:id', async (req, res) => {
 });
 
 
+// Post Production House
+router.post('/prod', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    
+    const {
+        name,
+        ownerId,
+        founderId,
+        coFounders,
+        country,
+        city,
+        address,
+        cover,
+        contact,
+        details,
+        status,
+        stars,
+    } = req.body;
+    newProd = new ProductionHouse(req.body);
+
+    await newProd.save()
+        .then(saveItem => res.json(saveItem))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
+
 module.exports = router;
