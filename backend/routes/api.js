@@ -230,6 +230,15 @@ router.get('/genres', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+// Fetch a Genre by id
+router.get('/genre/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await Genre.findById(req.params.id)
+        .then(genre => res.json(genre))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
+
 
 
 module.exports = router;
