@@ -5,6 +5,7 @@ const Category = mongoose.Schema({
     details : String,
     status : Number, default: 0,
     value: Number,
+    picture: String,
     created: {type: Date, default: Date.now}
 });
 
