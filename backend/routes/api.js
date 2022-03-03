@@ -187,4 +187,40 @@ router.post('/film', async (req, res) => {
         .then(actorSaved => res.json(actorSaved))
         .catch(err => res.status(400).json({error_message:err}));
 });
+
+
+// Update a Film
+router.put('/film/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+
+    const {
+        title,
+        subtitle,
+        dateAnouncement,
+        dateRelease,
+        categoryId,
+        actorId,
+        actorsId,
+        genreId,
+        userId,
+        productionHouseId,
+        productionHousesId,
+        urlTrailer,
+        urlFullFilm,
+        price,
+        discount,
+        cover,
+        screenShots,
+        details,
+        status,
+        stars,
+        competitions
+    } = req.body;
+
+    Film.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => res.send('Film Updated successfuly!'))
+        .catch(err => res.status(400).send({error_message: err}));
+});
+
+
 module.exports = router;
