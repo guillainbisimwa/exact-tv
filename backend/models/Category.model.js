@@ -6,7 +6,7 @@ const Category = mongoose.Schema({
     status : Number, default: 0,
     value: Number,
     picture: String,
-    stars: NUmber,
+    stars: Number,
     created: {type: Date, default: Date.now}
 });
 
