@@ -90,5 +90,15 @@ router.get('/categories', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+// Fetch a Category by id
+router.get('/categorie/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await Category.findById(req.params.id)
+        .then(cat => res.json(cat))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
+
+
 
 module.exports = router;
