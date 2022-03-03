@@ -259,6 +259,23 @@ router.post('/genre', async (req, res) => {
 });
 
 
+// Update a Genre
+router.put('/genre/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+
+    const {
+        label,
+        details,
+        status,
+        value,
+        picture,
+        stars,
+    } = req.body;
+
+    Genre.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => res.send('Genre Updated successfuly!'))
+        .catch(err => res.status(400).send({error_message: err}));
+});
 
 
 module.exports = router;
