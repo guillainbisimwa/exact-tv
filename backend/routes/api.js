@@ -153,4 +153,38 @@ router.get('/film/:id', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+
+// Post Film
+router.post('/film', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    
+    const {
+        title,
+        subtitle,
+        dateAnouncement,
+        dateRelease,
+        categoryId,
+        actorId,
+        actorsId,
+        genreId,
+        userId,
+        productionHouseId,
+        productionHousesId,
+        urlTrailer,
+        urlFullFilm,
+        price,
+        discount,
+        cover,
+        screenShots,
+        details,
+        status,
+        stars,
+        competitions
+    } = req.body;
+    newFilm = new Film(req.body);
+
+    await newFilm.save()
+        .then(actorSaved => res.json(actorSaved))
+        .catch(err => res.status(400).json({error_message:err}));
+});
 module.exports = router;

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const Film = mongoose.Schema({
-    title : String,
-    subtitle : String,
+    title: String,
+    subtitle: String,
     dateAnouncement: Date,
     dateRelease: Date,
     categoryId: String, // #
@@ -12,14 +12,14 @@ const Film = mongoose.Schema({
     userId: String, // # TODO
     productionHouseId: String,
     productionHousesId: [],
-    urlTrailer : String,
-    urlFullFilm : String,
+    urlTrailer: String,
+    urlFullFilm: String,
     price: Number,
     discount: Number,
     cover: String,
     screenShots: [],
-    details : String,
-    status : Number, default: 0,
+    details: String,
+    status: Number, default:0,
     stars: Number,
     competitions: [], // TODO {name, date, town, price}
     created: {type: Date, default: Date.now}
