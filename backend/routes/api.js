@@ -74,7 +74,7 @@ router.put('/actor/:id', async (req, res) => {
         status,
         stars,
         contact,
-        competitions,
+        competitions
     } = req.body;
 
     Actor.findByIdAndUpdate(req.params.id, req.body)
@@ -118,6 +118,24 @@ router.post('/category', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+
+// Update a Category
+router.put('/category/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+
+    const {
+        label,
+        details,
+        status,
+        value,
+        picture,
+        stars
+    } = req.body;
+
+    Category.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => res.send('Category Updated successfuly!'))
+        .catch(err => res.status(400).send({error_message: err}));
+});
 
 
 module.exports = router;
