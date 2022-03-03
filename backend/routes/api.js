@@ -22,6 +22,13 @@ router.get('/actors', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+// Fetch an Actor by id
+router.get('/actor/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await Actor.findById(req.params.id)
+        .then(actor => res.json(actor))
+        .catch(err => res.status(400).json({error_message:err}));
+});
 
 
 module.exports = router;
