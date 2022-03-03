@@ -53,7 +53,7 @@ router.post('/actor', async (req, res) => {
     newActor = new Actor(req.body);
 
     await newActor.save()
-        .then(actorSaved => res.json(actorSaved))
+        .then(saveItem => res.json(saveItem))
         .catch(err => res.status(400).json({error_message:err}));
 });
 
@@ -114,7 +114,7 @@ router.post('/category', async (req, res) => {
     newCat = new Category(req.body);
 
     await newCat.save()
-        .then(actorSaved => res.json(actorSaved))
+        .then(saveItem => res.json(saveItem))
         .catch(err => res.status(400).json({error_message:err}));
 });
 
@@ -184,7 +184,7 @@ router.post('/film', async (req, res) => {
     newFilm = new Film(req.body);
 
     await newFilm.save()
-        .then(actorSaved => res.json(actorSaved))
+        .then(saveItem => res.json(saveItem))
         .catch(err => res.status(400).json({error_message:err}));
 });
 
@@ -235,6 +235,26 @@ router.get('/genre/:id', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     await Genre.findById(req.params.id)
         .then(genre => res.json(genre))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
+
+// Post Genre
+router.post('/genre', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    
+    const {
+        label,
+        details,
+        status,
+        value,
+        picture,
+        stars,
+    } = req.body;
+    newGenre = new Genre(req.body);
+
+    await newGenre.save()
+        .then(saveItem => res.json(saveItem))
         .catch(err => res.status(400).json({error_message:err}));
 });
 
