@@ -8,8 +8,8 @@ const Film = mongoose.Schema({
     categoryId: String, // #
     actorId: String,
     actorsId: [],
-    genreId: String, // # TODO
-    userId: String, // # TODO
+    genreId: String, // #
+    userId: String, // #
     productionHouseId: String,
     productionHousesId: [],
     urlTrailer: String,

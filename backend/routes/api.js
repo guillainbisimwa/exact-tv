@@ -40,6 +40,7 @@ router.post('/actor', async (req, res) => {
         lastName,
         nickName,
         country,
+        password,
         sex,
         dateBirth,
         biography,
@@ -50,11 +51,80 @@ router.post('/actor', async (req, res) => {
         contact,
         competitions
     } = req.body;
-    newActor = new Actor(req.body);
 
-    await newActor.save()
-        .then(saveItem => res.json(saveItem))
-        .catch(err => res.status(400).json({error_message:err}));
+    if(!name) res.status(400).send({error_message: 'A name cannot be empty'});
+    await Actor.findOne({name}) // find the user by email
+        .then(actor => {
+            if(actor){ // if the user doen't exit with this email 
+                res.status(400).send({error_message: 'This name is already used!'});
+            }else{
+                const newActor = new Actor({  
+                    name,
+                    lastName,
+                    nickName,
+                    country,
+                    //password,
+                    sex,
+                    dateBirth,
+                    biography,
+                    profilePicture,
+                    screenShots,
+                    status,
+                    stars,
+                    contact,
+                    competitions 
+                });
+
+                const profile = new Profile({  
+                    actorId,
+                    name,
+                    password,
+                    token
+                });
+
+                // chiffrer le password
+                bcrypt.genSalt(10, (err, salt) => {
+                    if(err) throw err;
+                    bcrypt.hash(profile.password, salt, (err, hash) => { // hashing the password
+                        if(err) throw err;
+                        profile.password = hash; // passing the hashed password to the user model
+
+                        newActor.save()
+                            .then(user => {
+                                // process for jwt generating token 
+                                jwt.sign( 
+                                    {id: user.id},
+                                    process.env.SECRET_KEY,
+                                    {expiresIn: 3600},
+                                    (err, token) => {
+                                        if(err) throw err;
+                                        // return token, phone and password
+                                        //profile.save()
+                                        res.json({
+                                            token, 
+                                            user:{
+                                                id: user.id,
+                                                name: user.name,
+                                                email: user.email,
+                                                password: user.password
+                                            }
+                                        });
+                                    }
+                                 )
+                            })
+                            .catch(err => res.status(400).send({error_message: err}));
+
+                    });
+                });
+
+                // newActor = new Actor(req.body);
+
+                // await newActor.save()
+                //     .then(saveItem => res.json(saveItem))
+                //     .catch(err => res.status(400).json({error_message:err}));
+            }
+        })
+    .catch(err => res.status(400).send({error_message: err}));
 });
 
 // Update an Actor
@@ -65,6 +135,7 @@ router.put('/actor/:id', async (req, res) => {
         name,
         lastName,
         nickName,
+        password,
         country,
         sex,
         dateBirth,

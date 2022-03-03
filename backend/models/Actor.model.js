@@ -4,6 +4,7 @@ const Actor = mongoose.Schema({
     name: String,
     lastName: String,
     nickName: String,
+    // password: String,
     country: String,
     sex: String,
     dateBirth: Date,
