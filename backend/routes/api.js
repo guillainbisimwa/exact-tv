@@ -99,16 +99,21 @@ router.post('/actor', async (req, res) => {
                                     (err, token) => {
                                         if(err) throw err;
                                         // return token, phone and password
-                                        //profile.save()
-                                        res.json({
-                                            token, 
-                                            user:{
-                                                id: user.id,
-                                                name: user.name,
-                                                email: user.email,
-                                                password: user.password
-                                            }
-                                        });
+                                        profile.token = token;
+                                        profile.name = name;
+                                        profile.actorId =  user.id;
+                                        profile.save()
+                                            .then(saveItem => {
+                                                res.json({
+                                                    token, 
+                                                    user:{
+                                                        id: user.id,
+                                                        name: user.name,
+                                                    }
+                                                });
+                                            })
+                                            .catch(err => res.status(400).json({error_message:err}));
+                                       
                                     }
                                  )
                             })
