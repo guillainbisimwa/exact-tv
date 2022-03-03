@@ -99,6 +99,25 @@ router.get('/categorie/:id', async (req, res) => {
 });
 
 
+// Post Category
+router.post('/category', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    
+    const {
+        label,
+        details,
+        status,
+        value,
+        picture,
+        stars
+    } = req.body;
+    newCat = new Category(req.body);
+
+    await newCat.save()
+        .then(actorSaved => res.json(actorSaved))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
 
 
 module.exports = router;
