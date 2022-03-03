@@ -319,5 +319,30 @@ router.post('/prod', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+// Update a Production House
+router.put('/prod/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+
+    const {
+        name,
+        ownerId,
+        founderId,
+        coFounders,
+        country,
+        city,
+        address,
+        cover,
+        contact,
+        details,
+        status,
+        stars,
+    } = req.body;
+
+    ProductionHouse.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => res.send('Production ouse Updated successfuly!'))
+        .catch(err => res.status(400).send({error_message: err}));
+});
+
+
 
 module.exports = router;
