@@ -121,15 +121,45 @@ router.post('/actor', async (req, res) => {
 
                     });
                 });
-
-                // newActor = new Actor(req.body);
-
-                // await newActor.save()
-                //     .then(saveItem => res.json(saveItem))
-                //     .catch(err => res.status(400).json({error_message:err}));
             }
         })
     .catch(err => res.status(400).send({error_message: err}));
+});
+
+// sign in
+router.post('/signin', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    const { name, password, token } = req.body;
+
+    if(!name || !password) { // if the fields remain empty
+        res.status(400).send({error_message: "The name or the password cannot be empty"});
+        return
+    }
+
+    await Profile.findOne({token}) // find user by his email
+        .then(profile => {
+                bcrypt.compare(password, profile.password) // comparing password
+                    .then(success => {
+                        if(!success) res.status(400).send({error_message: "Your password is incorrect"});
+
+                        // generating token when the login is successfull
+                        jwt.sign(
+                            {id: profile.actorId},
+                            process.env.SECRET_KEY,
+                            {expiresIn: 3600},
+                            (err, token) => {
+                                if(err) throw err;
+                                // TODO: Update Token Here!
+                                res.json({
+                                    token,
+                                    profile
+                                })
+                            }
+                        )
+                    })
+                    .catch(err => res.status(400).send({error_message: err}));
+        })
+        .catch(err => res.status(400).send({error_message: `No Account found!`}));        
 });
 
 // Update an Actor
