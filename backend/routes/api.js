@@ -48,15 +48,39 @@ router.post('/actor', async (req, res) => {
         status,
         stars,
         contact,
-        competitions,
+        competitions
     } = req.body;
-    newActor = new Image(req.body);
+    newActor = new Actor(req.body);
 
     await newActor.save()
         .then(actorSaved => res.json(actorSaved))
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+// Update an Actor
+router.put('/actor/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+
+    const {
+        name,
+        lastName,
+        nickName,
+        country,
+        sex,
+        dateBirth,
+        biography,
+        profilePicture,
+        screenShots,
+        status,
+        stars,
+        contact,
+        competitions,
+    } = req.body;
+
+    Actor.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => res.send('Actor Updated successfuly!'))
+        .catch(err => res.status(400).send({error_message: err}));
+});
 
 
 module.exports = router;
