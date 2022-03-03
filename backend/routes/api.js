@@ -137,5 +137,13 @@ router.put('/category/:id', async (req, res) => {
         .catch(err => res.status(400).send({error_message: err}));
 });
 
+// Fetch All Films
+router.get('/films', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await Film.find()
+        .then(film => res.json(film))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
 
 module.exports = router;
