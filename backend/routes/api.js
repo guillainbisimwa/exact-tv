@@ -82,5 +82,13 @@ router.put('/actor/:id', async (req, res) => {
         .catch(err => res.status(400).send({error_message: err}));
 });
 
+// Fetch All Categories
+router.get('/categories', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await Category.find()
+        .then(cat => res.json(cat))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
 
 module.exports = router;
