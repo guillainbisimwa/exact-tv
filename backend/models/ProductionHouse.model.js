@@ -9,8 +9,6 @@ const ProductionHouse = mongoose.Schema({
     city: String,
     address : String,
     cover : String,
-    cover : String,
-    cover: String,
     screenShots: [],
     contact: [], // # TODO {email, phone, twitter, FaceBook, web, Youtube}
     details : String,
