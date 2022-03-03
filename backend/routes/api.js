@@ -285,5 +285,13 @@ router.get('/prods', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+// Fetch a ProductionHouse by id
+router.get('/prod/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await ProductionHouse.findById(req.params.id)
+        .then(prod => res.json(prod))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
 
 module.exports = router;
