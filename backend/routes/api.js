@@ -145,5 +145,12 @@ router.get('/films', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
+// Fetch an Film by id
+router.get('/film/:id', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await Film.findById(req.params.id)
+        .then(actor => res.json(actor))
+        .catch(err => res.status(400).json({error_message:err}));
+});
 
 module.exports = router;
