@@ -145,7 +145,7 @@ router.get('/films', async (req, res) => {
         .catch(err => res.status(400).json({error_message:err}));
 });
 
-// Fetch an Film by id
+// Fetch a Film by id
 router.get('/film/:id', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     await Film.findById(req.params.id)
@@ -221,6 +221,15 @@ router.put('/film/:id', async (req, res) => {
         .then(() => res.send('Film Updated successfuly!'))
         .catch(err => res.status(400).send({error_message: err}));
 });
+
+// Fetch All Genres
+router.get('/genres', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await Genre.find()
+        .then(genres => res.json(genres))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
 
 
 module.exports = router;
