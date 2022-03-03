@@ -10,8 +10,8 @@ const Film = mongoose.Schema({
     actorsId: [], // # TODO
     genreId: String, // # TODO
     producerId: String, // # TODO
-    productionHouseId: String, // # TODO
-    productionHousesId: [], // # TODO
+    productionHouseId: String,
+    productionHousesId: [],
     urlTrailer : String,
     urlFullFilm : String,
     price: Number,
@@ -21,6 +21,7 @@ const Film = mongoose.Schema({
     details : String,
     status : Number, default: 0,
     stars: Number,
+    // competition: String, TODO
     created: {type: Date, default: Date.now}
 });
 
