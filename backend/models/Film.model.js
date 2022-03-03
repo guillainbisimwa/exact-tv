@@ -10,6 +10,8 @@ const Film = mongoose.Schema({
     actorsId: [], // # TODO
     genreId: String, // # TODO
     producerId: String, // # TODO
+    productionHouseId: String, // # TODO
+    productionHousesId: [], // # TODO
     urlTrailer : String,
     urlFullFilm : String,
     price: Number,
