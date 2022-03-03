@@ -4,7 +4,7 @@ const ProductionHouse = mongoose.Schema({
     name : String,
     ownerId: String, // # Actor TODO
     founderId: String, // # Actor TODO
-    coFounders: [],
+    coFounders: [], // # users
     country: String,
     city: String,
     address : String,

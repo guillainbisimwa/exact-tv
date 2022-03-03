@@ -5,11 +5,11 @@ const Film = mongoose.Schema({
     subtitle : String,
     dateAnouncement: Date,
     dateRelease: Date,
-    categoryId: String, // # 
+    categoryId: String, // #
     actorId: String,
     actorsId: [],
     genreId: String, // # TODO
-    producerId: String, // # TODO
+    userId: String, // # TODO
     productionHouseId: String,
     productionHousesId: [],
     urlTrailer : String,
