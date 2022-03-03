@@ -277,5 +277,13 @@ router.put('/genre/:id', async (req, res) => {
         .catch(err => res.status(400).send({error_message: err}));
 });
 
+// Fetch All ProductionHouse
+router.get('/prods', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    await ProductionHouse.find()
+        .then(prods => res.json(prods))
+        .catch(err => res.status(400).json({error_message:err}));
+});
+
 
 module.exports = router;
