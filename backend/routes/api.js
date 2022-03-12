@@ -1,69 +1,14 @@
 const router = require('express').Router();
-const Category = require('../models/category.model');
 const Film = require('../models/film.model');
 const Genre = require('../models/genre.model');
 const ProductionHouse = require('../models/productionHouse.model');
-
 
 router.get('/', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.send('API works perfectly ...');
 });
 
-// Fetch All Categories
-router.get('/categories', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    await Category.find()
-        .then(cat => res.json(cat))
-        .catch(err => res.status(400).json({error_message:err}));
-});
 
-// Fetch a Category by id
-router.get('/categorie/:id', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    await Category.findById(req.params.id)
-        .then(cat => res.json(cat))
-        .catch(err => res.status(400).json({error_message:err}));
-});
-
-
-// Post Category
-router.post('/category', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    
-    const {
-        label,
-        details,
-        status,
-        value,
-        picture,
-        stars
-    } = req.body;
-    newCat = new Category(req.body);
-
-    await newCat.save()
-        .then(saveItem => res.json(saveItem))
-        .catch(err => res.status(400).json({error_message:err}));
-});
-
-
-// Update a Category
-router.put('/category/:id', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-
-    const {
-        label,
-        details,
-        status,
-        value,
-        picture,
-        stars
-    } = req.body;
-
-    Category.findByIdAndUpdate(req.params.id, req.body)
-        .then(() => res.send('Category Updated successfuly!'))
-        .catch(err => res.status(400).send({error_message: err}));
-});
 
 // Fetch All Films
 router.get('/films', async (req, res) => {
