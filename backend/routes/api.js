@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Film = require('../models/film.model');
 const Genre = require('../models/genre.model');
 const ProductionHouse = require('../models/productionHouse.model');
 
@@ -10,90 +9,6 @@ router.get('/', async (req, res) => {
 
 
 
-// Fetch All Films
-router.get('/films', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    await Film.find()
-        .then(film => res.json(film))
-        .catch(err => res.status(400).json({error_message:err}));
-});
-
-// Fetch a Film by id
-router.get('/film/:id', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    await Film.findById(req.params.id)
-        .then(actor => res.json(actor))
-        .catch(err => res.status(400).json({error_message:err}));
-});
-
-
-// Post Film
-router.post('/film', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    
-    const {
-        title,
-        subtitle,
-        dateAnouncement,
-        dateRelease,
-        categoryId,
-        actorId,
-        actorsId,
-        genreId,
-        userId,
-        productionHouseId,
-        productionHousesId,
-        urlTrailer,
-        urlFullFilm,
-        price,
-        discount,
-        cover,
-        screenShots,
-        details,
-        status,
-        stars,
-        competitions
-    } = req.body;
-    newFilm = new Film(req.body);
-
-    await newFilm.save()
-        .then(saveItem => res.json(saveItem))
-        .catch(err => res.status(400).json({error_message:err}));
-});
-
-
-// Update a Film
-router.put('/film/:id', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-
-    const {
-        title,
-        subtitle,
-        dateAnouncement,
-        dateRelease,
-        categoryId,
-        actorId,
-        actorsId,
-        genreId,
-        userId,
-        productionHouseId,
-        productionHousesId,
-        urlTrailer,
-        urlFullFilm,
-        price,
-        discount,
-        cover,
-        screenShots,
-        details,
-        status,
-        stars,
-        competitions
-    } = req.body;
-
-    Film.findByIdAndUpdate(req.params.id, req.body)
-        .then(() => res.send('Film Updated successfuly!'))
-        .catch(err => res.status(400).send({error_message: err}));
-});
 
 // Fetch All Genres
 router.get('/genres', async (req, res) => {

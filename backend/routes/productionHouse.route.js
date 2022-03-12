@@ -1,6 +1,6 @@
 const express =  require('express');
 const router = express.Router();
-const { findAll, findOne, create, update } = require('../controllers/film.controller');
+const { findAll, findOne, create, update } = require('../controllers/productionHouse.controller');
 
 router.post('/', create)
 router.get('/', findAll );
