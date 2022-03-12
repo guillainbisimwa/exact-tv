@@ -14,14 +14,6 @@ router.get('/', async (req, res) => {
     res.send('API works perfectly ...');
 });
 
-// Fetch All Actors
-router.get('/actors', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    await Actor.find()
-        .then(actors => res.json(actors))
-        .catch(err => res.status(400).json({error_message:err}));
-});
-
 // Fetch an Actor by id
 router.get('/actor/:id', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
