@@ -1,0 +1,8 @@
+{
+  "name": "exact-tv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/guillainbisimwa/exact-tv",
+  "author": "Guillain BISIMWA",
+  "license": "MIT"
+}
