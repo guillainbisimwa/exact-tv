@@ -22,7 +22,7 @@ const HeaderStyle = styled('header')(({ theme }) => ({
   }
 }));
 
-const HomeLayout = ({ children })  =>{
+const AuthLayout = ({ children })  =>{
   return (
     <HeaderStyle>
       <Logo />
@@ -40,8 +40,8 @@ const HomeLayout = ({ children })  =>{
   );
 };
 
-HomeLayout.propTypes = {
+AuthLayout.propTypes = {
     children: PropTypes.node
 };
   
-export default HomeLayout;
+export default AuthLayout;
