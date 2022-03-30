@@ -74,22 +74,33 @@ const actors = [...Array(50)].map((_, index) => ({
     status:  faker.datatype.boolean(),
     stars: faker.datatype.number(5),
     contact: contact[index].id,
-    competitions: [], // TODO {name, date, town, price}
+    competitions: competitions[index].id,
     created: faker.date.between()
   })
 ); 
 
 
 const contact = [...Array(10)].map((_, index) => ({
-  id: faker.datatype.uuid(),
-  email: faker.internet.email(),
-  phone: faker.phone.phoneNumber('+243 9# ### ## ##'),
-  twitter: faker.name.lastName(),
-  FaceBook: faker.name.lastName(),
-  web: faker.internet.domainName(),
-  Youtube: faker.internet.url() ,
-  created: faker.date.between()
-})
+    id: faker.datatype.uuid(),
+    email: faker.internet.email(),
+    phone: faker.phone.phoneNumber('+243 9# ### ## ##'),
+    twitter: faker.name.lastName(),
+    FaceBook: faker.name.lastName(),
+    web: faker.internet.domainName(),
+    Youtube: faker.internet.url() ,
+    created: faker.date.between()
+  })
+); 
+
+const competitions = [...Array(10)].map((_, index) => ({
+    id: faker.datatype.uuid(),
+    name: faker.name.jobTitle(),
+    date: faker.date.past(4, '2000-01-01T00:00:00.000Z'),
+    price: faker.commerce.price(1000, 2000, 0, '$'),
+    town: faker.address.cityName(),
+    label: sample(["Laureat", "Vainqueur", "Participant"]),
+    created: faker.date.between()
+  })
 ); 
 
 
