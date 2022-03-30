@@ -16,7 +16,7 @@ const films = [...Array(24)].map((_, index) => ({
     dateRelease: faker.date.soon(),
     categoryId: sample([
       "1","2","3","4","5"
-    ]), // #
+    ]),
     actorId: actors[index].id,
     actorsId: sample([ actors[index].id, actors[index].id, actors[index].id, actors[index].id]),
     genreId: genre[index].id,
@@ -27,17 +27,23 @@ const films = [...Array(24)].map((_, index) => ({
     urlFullFilm: "https://www.youtube.com/watch?v=Uw4P646FUSI",
     price: faker.commerce.price(100, 200, 0, '$'),
     discount: faker.commerce.price(10, 20, 0, '$'),
-    cover: "String",
+    cover: covers[index].img,
     screenShots: sample([
-      faker.image.imageUrl(200, 180), 
-      faker.image.imageUrl(200, 180),
-      faker.image.imageUrl(200, 180),
-      faker.image.imageUrl(200, 180)]),
+      faker.image.imageUrl(400, 290), 
+      faker.image.imageUrl(400, 290),
+      faker.image.imageUrl(400, 290),
+      faker.image.imageUrl(400, 290)]),
     details: faker.lorem.paragraphs(3),
     status:  faker.datatype.boolean(),
     stars: faker.commerce.price(0, 5),
     competitions: competitions[index].id,
     created :faker.date.between()
+  })
+);
+
+const covers = [...Array(7)].map((_, index) => ({
+    id: faker.datatype.uuid(),
+    img: `./../assets/films/film-${index}.jpg`
   })
 );
 
@@ -145,7 +151,13 @@ const competitions = [...Array(10)].map((_, index) => ({
 
 
 export  {
-  categories,
+  account,
   films,
-  account
+  covers,
+  productionHouse,
+  categories,
+  genre,
+  actors,
+  contact,
+  competitions
 }
