@@ -4,9 +4,10 @@ import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
 import Iconify from '../components/Iconify';
-import { films, genre } from '../_mocks_';
+import { categories, films, genre } from '../_mocks_';
 import FilmCard from '../sections/@Home/Catalog/Films';
 import GenreSort from '../sections/@Home/GenreSort';
+import CategorySort from '../sections/@Home/CategorySort';
 
 // ----------------------------------------------------------------------
 
@@ -19,9 +20,11 @@ const Home =() =>{
             Catalogue
           </Typography>
 
-          <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
+          
             <GenreSort options={genre} />
-          </Stack>
+
+          
+            <CategorySort options={categories} />
 
           <Button
             variant="contained"
