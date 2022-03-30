@@ -10,6 +10,7 @@ import LanguagePopover from './LanguagePopover';
 import NavSection from '../../components/NavSection';
 import sidebarConfig from './SidebarConfig';
 import Logo from '../../components/Logo';
+import Searchbar from './Searchbar';
 
 // ----------------------------------------------------------------------
 
@@ -57,8 +58,8 @@ const HomeNavbar = ({ onOpenSidebar }) =>{
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
           <LanguagePopover />
-        
           <AccountPopover />
+          <Searchbar />
         </Stack>
       </ToolbarStyle>
     </RootStyle>
