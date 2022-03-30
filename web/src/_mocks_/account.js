@@ -19,7 +19,7 @@ const films = [...Array(24)].map((_, index) => ({
     categoryId: sample([
       "1","2","3","4","5"
     ]), // #
-    actorId:  actors[index].id,
+    actorId: actors[index].id,
     actorsId: "[]",
     genreId: "String", // #
     userId: "",
@@ -73,10 +73,23 @@ const actors = [...Array(50)].map((_, index) => ({
       faker.image.imageUrl(200, 180)]),
     status:  faker.datatype.boolean(),
     stars: faker.datatype.number(5),
-    contact: [], // # TODO {email, phone, twitter, FaceBook, web, Youtube}
+    contact: contact[index].id,
     competitions: [], // TODO {name, date, town, price}
     created: faker.date.between()
   })
+); 
+
+
+const contact = [...Array(10)].map((_, index) => ({
+  id: faker.datatype.uuid(),
+  email: faker.internet.email(),
+  phone: faker.phone.phoneNumber('+243 9# ### ## ##'),
+  twitter: faker.name.lastName(),
+  FaceBook: faker.name.lastName(),
+  web: faker.internet.domainName(),
+  Youtube: faker.internet.url() ,
+  created: faker.date.between()
+})
 ); 
 
 
