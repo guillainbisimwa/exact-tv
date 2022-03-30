@@ -35,8 +35,8 @@ const TitleStyle = styled(Link)({
 const InfoStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
-  justifyContent: 'flex-end',
-  marginTop: theme.spacing(3),
+  justifyContent: 'flex-start',
+  marginTop: theme.spacing(0),
   color: theme.palette.text.disabled
 }));
 
@@ -79,7 +79,7 @@ const FilmCard = ({ film, index }) => {
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
 
-  const POST_INFO = [
+  const stars_info = [
     { number: 2, icon: 'eva:message-circle-fill' },
     { number: 5, icon: 'eva:eye-fill' },
     { number: 3, icon: 'eva:share-fill' }
@@ -173,20 +173,27 @@ const FilmCard = ({ film, index }) => {
           </TitleStyle>
 
           <InfoStyle>
-            {POST_INFO.map((info, index) => (
+            {[...Array(5-stars)].map((index) => (
               <Box
                 key={index}
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  ml: index === 0 ? 0 : 1.5,
-                  ...((latestPostLarge || latestPost) && {
-                    color: 'grey.500'
-                  })
                 }}
               >
-                <Iconify icon={info.icon} sx={{ width: 16, height: 16, mr: 0.5 }} />
-                <Typography variant="caption">nbrrrr</Typography>
+                <Iconify icon='eva:star-fill' sx={{ width: 16, height: 16, mr: 0.3, color: "#f5dd0b" }} />
+              </Box>
+            ))}
+
+            {[...Array(5 -(5-stars))].map((index) => (
+              <Box
+                key={index}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <Iconify icon='eva:star-fill' sx={{ width: 16, height: 16, mr: 0.3, }} />
               </Box>
             ))}
           </InfoStyle>

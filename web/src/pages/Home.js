@@ -15,7 +15,7 @@ const Home =() =>{
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Home
+            Catalogue
           </Typography>
           <Button
             variant="contained"
