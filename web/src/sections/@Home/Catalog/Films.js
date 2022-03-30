@@ -8,6 +8,7 @@ import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from '@mui/mat
 //
 //import SvgIconStyle from '../../../components/SvgIconStyle';
 import Iconify from '../../../components/Iconify';
+import SvgIconStyle from '../../../components/SvgIconStyle';
 // ----------------------------------------------------------------------
 
 const CardMediaStyle = styled('div')({
@@ -109,7 +110,7 @@ const FilmCard = ({ film, index }) => {
             })
           }}
         >
-          {/* <SvgIconStyle
+          <SvgIconStyle
             color="paper"
             src="/static/icons/shape-avatar.svg"
             sx={{
@@ -120,8 +121,8 @@ const FilmCard = ({ film, index }) => {
               position: 'absolute',
               ...((latestPostLarge || latestPost) && { display: 'none' })
             }}
-          /> */}
-          {/* <AvatarStyle
+          />
+          <AvatarStyle
             alt="name"
             src="xxxx"
             sx={{
@@ -133,7 +134,7 @@ const FilmCard = ({ film, index }) => {
                 height: 40
               })
             }}
-          /> */}
+          />
 
           <CoverImgStyle alt={title} src={cover} />
         </CardMediaStyle>
