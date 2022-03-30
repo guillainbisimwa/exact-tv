@@ -38,9 +38,28 @@ const films = [...Array(24)].map((_, index) => ({
   stars: faker.commerce.price(0, 5),
   competitions: "[]", // TODO {name, date, town, price}
   created :faker.date.between()
-}
+})
+);
+
+const categories = [...Array(5)].map((_, index) => ({
+  id: sample([
+    1,2,3,4,5
+  ]),
+  label:  sample([
+    "Film", "Comedie", "Serie", "Court metrage", "Documentaire"
+  ]),
+  details: faker.lorem.lines(3),
+  status: faker.datatype.boolean(),
+  value: faker.datatype.number(100),
+  picture: faker.image.avatar(),
+  stars: faker.datatype.number(5) ,
+  created: faker.date.between()
+})
+)
+
 
 export  {
-  users,
+  categories,
+  films,
   account
 }
