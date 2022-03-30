@@ -36,10 +36,8 @@ const categories = [...Array(5)].map((_, index) => ({
 })
 );
 
-const genre = [...Array(24)].map((_, index) => ({
-  id: sample([
-    1,2,3,4,5
-  ]),
+const genre = [...Array(5)].map((_, index) => ({
+  id: index,
   label:  sample([
     "Romantique", "Action", "Glamour", "Fiction", "Film d'horreur"
   ]),
@@ -140,7 +138,9 @@ const films = [...Array(24)].map((_, index) => ({
     ]),
     actorId: actors[index].id,
     actorsId: sample([ actors[index].id, actors[index].id, actors[index].id, actors[index].id]),
-    genreId: genre[index].id,
+    genreId: sample([
+      1,2,3,4,5
+    ]),
     userId:  actors[index].id,
     productionHouseId: productionHouse[index].id,
     productionHousesId: sample([productionHouse[index].id, productionHouse[index].id, productionHouse[index].id,]),

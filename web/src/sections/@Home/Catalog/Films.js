@@ -79,15 +79,9 @@ const FilmCard = ({ film, index }) => {
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
 
-  const stars_info = [
-    { number: 2, icon: 'eva:message-circle-fill' },
-    { number: 5, icon: 'eva:eye-fill' },
-    { number: 3, icon: 'eva:share-fill' }
-  ];
-
   return (
     <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
-      <Card sx={{ position: 'relative' }}>
+      <Card sx={{ position: 'relative' }} >
         <CardMediaStyle
           sx={{
             ...((latestPostLarge || latestPost) && {
@@ -98,7 +92,7 @@ const FilmCard = ({ film, index }) => {
                 width: '100%',
                 height: '100%',
                 position: 'absolute',
-                bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72)
+                bgcolor: (theme) => alpha(theme.palette.grey[900], 0.69)
               }
             }),
             ...(latestPostLarge && {
