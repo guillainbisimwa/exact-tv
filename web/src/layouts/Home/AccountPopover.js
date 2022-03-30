@@ -7,8 +7,8 @@ import { Button, Box, Divider, MenuItem, Typography, Avatar, IconButton } from '
 import Iconify from '../../components/Iconify';
 import MenuPopover from '../../components/MenuPopover';
 //
-import account from '../../_mocks_/account';
 
+import { account } from '../../_mocks_';
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
