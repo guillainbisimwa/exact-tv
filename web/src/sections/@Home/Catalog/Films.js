@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from '@mui/material';
+import { Box, Link, Card, Grid, Typography, CardContent } from '@mui/material';
 // utils
 
 import Iconify from '../../../components/Iconify';
+import { fYear } from '../../../Utils/formatTime';
 // import SvgIconStyle from '../../../components/SvgIconStyle';
 // ----------------------------------------------------------------------
 
@@ -152,8 +153,7 @@ const FilmCard = ({ film, index }) => {
             variant="caption"
             sx={{ color: 'text.disabled', display: 'block' }}
           >
-            {/* {fDate(createdAt)} */}
-            "date date"
+            {fYear(dateRelease)}
           </Typography>
 
           <TitleStyle

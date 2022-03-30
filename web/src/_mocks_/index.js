@@ -134,7 +134,7 @@ const films = [...Array(24)].map((_, index) => ({
     title: faker.company.companyName(),
     subtitle:faker.company.bs(),
     dateAnouncement:faker.date.soon(),
-    dateRelease: faker.date.soon(),
+    dateRelease: faker.date.past(10, '2020-01-01T00:00:00.000Z'),
     categoryId: sample([
       "1","2","3","4","5"
     ]),
