@@ -1,7 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { sample } from 'lodash';
 // utils
-import { mockImgAvatar } from '../utils/mockImages';
 
 const account = {
   displayName: 'Nom Postnom',
@@ -20,8 +19,8 @@ const films = [...Array(24)].map((_, index) => ({
       "1","2","3","4","5"
     ]), // #
     actorId: actors[index].id,
-    actorsId: "[]",
-    genreId: "String", // #
+    actorsId: sample([ actors[index].id, actors[index].id, actors[index].id, actors[index].id]),
+    genreId: genre[index].id,
     userId: "",
     productionHouseId: "String",
     productionHousesId: "[]",
@@ -53,6 +52,22 @@ const categories = [...Array(5)].map((_, index) => ({
     stars: faker.datatype.number(5) ,
     created: faker.date.between()
   })
+);
+
+const genre = [...Array(5)].map((_, index) => ({
+  id: sample([
+    1,2,3,4,5
+  ]),
+  label:  sample([
+    "Romantique", "Action", "Glamour", "Fiction", "Film d'horreur"
+  ]),
+  details: faker.lorem.lines(3),
+  status: faker.datatype.boolean(),
+  value: faker.datatype.number(100),
+  picture: faker.image.avatar(),
+  stars: faker.datatype.number(5) ,
+  created: faker.date.between()
+})
 );
 
 const actors = [...Array(50)].map((_, index) => ({
