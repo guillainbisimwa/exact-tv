@@ -8,7 +8,6 @@ const account = {
   photoURL: './../assets/avatar.png'
 };
 
-
 const films = [...Array(24)].map((_, index) => ({
     id: faker.datatype.uuid(),
     title: faker.company.companyName(),
@@ -21,22 +20,49 @@ const films = [...Array(24)].map((_, index) => ({
     actorId: actors[index].id,
     actorsId: sample([ actors[index].id, actors[index].id, actors[index].id, actors[index].id]),
     genreId: genre[index].id,
-    userId: "",
-    productionHouseId: "String",
-    productionHousesId: "[]",
-    urlTrailer: "String",
-    urlFullFilm: "String",
+    userId:  actors[index].id,
+    productionHouseId: productionHouse[index].id,
+    productionHousesId: sample([productionHouse[index].id, productionHouse[index].id, productionHouse[index].id,]),
+    urlTrailer: "https://www.youtube.com/watch?v=Uw4P646FUSI",
+    urlFullFilm: "https://www.youtube.com/watch?v=Uw4P646FUSI",
     price: faker.commerce.price(100, 200, 0, '$'),
     discount: faker.commerce.price(10, 20, 0, '$'),
     cover: "String",
-    screenShots: "[]",
-    details: "String",
-    status: "Number", 
+    screenShots: sample([
+      faker.image.imageUrl(200, 180), 
+      faker.image.imageUrl(200, 180),
+      faker.image.imageUrl(200, 180),
+      faker.image.imageUrl(200, 180)]),
+    details: faker.lorem.paragraphs(3),
+    status:  faker.datatype.boolean(),
     stars: faker.commerce.price(0, 5),
-    competitions: "[]", // TODO {name, date, town, price}
+    competitions: competitions[index].id,
     created :faker.date.between()
   })
 );
+
+const productionHouse = [...Array(10)].map((_, index) => ({
+    id: faker.datatype.uuid(),
+    name: faker.internet.domainWord(),
+    ownerId:actors[index].id,
+    founderId: actors[index].id,
+    coFounders: sample([ actors[index].id, actors[index].id]),
+    country: faker.address.country(),
+    city: faker.address.cityName(),
+    address: faker.address.streetAddress(true),
+    cover: faker.image.imageUrl(600, 450),
+    screenShots: sample([
+      faker.image.imageUrl(200, 180), 
+      faker.image.imageUrl(200, 180),
+      faker.image.imageUrl(200, 180),
+      faker.image.imageUrl(200, 180)]),
+    contact: contact[index].id,
+    details: faker.lorem.lines(4),
+    status:  faker.datatype.boolean(),
+    stars: faker.commerce.price(0, 5),
+    created :faker.date.between()
+  })
+)
 
 const categories = [...Array(5)].map((_, index) => ({
     id: sample([
@@ -55,19 +81,19 @@ const categories = [...Array(5)].map((_, index) => ({
 );
 
 const genre = [...Array(5)].map((_, index) => ({
-  id: sample([
-    1,2,3,4,5
-  ]),
-  label:  sample([
-    "Romantique", "Action", "Glamour", "Fiction", "Film d'horreur"
-  ]),
-  details: faker.lorem.lines(3),
-  status: faker.datatype.boolean(),
-  value: faker.datatype.number(100),
-  picture: faker.image.avatar(),
-  stars: faker.datatype.number(5) ,
-  created: faker.date.between()
-})
+    id: sample([
+      1,2,3,4,5
+    ]),
+    label:  sample([
+      "Romantique", "Action", "Glamour", "Fiction", "Film d'horreur"
+    ]),
+    details: faker.lorem.lines(3),
+    status: faker.datatype.boolean(),
+    value: faker.datatype.number(100),
+    picture: faker.image.avatar(),
+    stars: faker.datatype.number(5) ,
+    created: faker.date.between()
+  })  
 );
 
 const actors = [...Array(50)].map((_, index) => ({
@@ -75,7 +101,6 @@ const actors = [...Array(50)].map((_, index) => ({
     name: faker.name.firstName() ,
     lastName: faker.name.lastName(),
     middleName: faker.name.lastName(),
-    // password: String,
     country: faker.address.country(),
     sex: faker.name.gender(true) ,
     dateBirth: faker.date.past(40, '2000-01-01T00:00:00.000Z'),
