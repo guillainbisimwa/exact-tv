@@ -5,10 +5,8 @@ import { alpha, styled } from '@mui/material/styles';
 import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from '@mui/material';
 // utils
 
-//
-//import SvgIconStyle from '../../../components/SvgIconStyle';
 import Iconify from '../../../components/Iconify';
-import SvgIconStyle from '../../../components/SvgIconStyle';
+// import SvgIconStyle from '../../../components/SvgIconStyle';
 // ----------------------------------------------------------------------
 
 const CardMediaStyle = styled('div')({
@@ -24,14 +22,14 @@ const TitleStyle = styled(Link)({
   WebkitBoxOrient: 'vertical'
 });
 
-const AvatarStyle = styled(Avatar)(({ theme }) => ({
-  zIndex: 9,
-  width: 32,
-  height: 32,
-  position: 'absolute',
-  left: theme.spacing(3),
-  bottom: theme.spacing(-2)
-}));
+// const AvatarStyle = styled(Avatar)(({ theme }) => ({
+//   zIndex: 9,
+//   width: 32,
+//   height: 32,
+//   position: 'absolute',
+//   left: theme.spacing(3),
+//   bottom: theme.spacing(-2)
+// }));
 
 const InfoStyle = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -110,7 +108,7 @@ const FilmCard = ({ film, index }) => {
             })
           }}
         >
-          <SvgIconStyle
+          {/* <SvgIconStyle
             color="paper"
             src="/static/icons/shape-avatar.svg"
             sx={{
@@ -134,7 +132,7 @@ const FilmCard = ({ film, index }) => {
                 height: 40
               })
             }}
-          />
+          /> */}
 
           <CoverImgStyle alt={title} src={cover} />
         </CardMediaStyle>
