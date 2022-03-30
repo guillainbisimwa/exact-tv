@@ -25,7 +25,6 @@ const Home =() =>{
             <CategorySort options={categories} />
             <SearchFilm films={films} />
 
-         
         </Stack>
 
         <Grid container spacing={3}>
