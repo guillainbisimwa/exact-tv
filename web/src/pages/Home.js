@@ -6,8 +6,9 @@ import Page from '../components/Page';
 import Iconify from '../components/Iconify';
 import { categories, films, genre } from '../_mocks_';
 import FilmCard from '../sections/@Home/Catalog/Films';
-import GenreSort from '../sections/@Home/GenreSort';
-import CategorySort from '../sections/@Home/CategorySort';
+import GenreSort from '../sections/@Home/Catalog/GenreSort';
+import CategorySort from '../sections/@Home/Catalog/CategorySort';
+import SearchFilm from '../sections/@Home/Catalog/SearchFilm';
 
 // ----------------------------------------------------------------------
 
@@ -20,20 +21,11 @@ const Home =() =>{
             Catalogue
           </Typography>
 
-          
             <GenreSort options={genre} />
-
-          
             <CategorySort options={categories} />
+            <SearchFilm films={films} />
 
-          <Button
-            variant="contained"
-            component={RouterLink}
-            to="#"
-            startIcon={<Iconify icon="eva:plus-fill" />}
-          >
-            New Post
-          </Button>
+         
         </Stack>
 
         <Grid container spacing={3}>
