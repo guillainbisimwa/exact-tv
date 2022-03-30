@@ -1,11 +1,22 @@
 import { faker } from '@faker-js/faker';
 import { sample } from 'lodash';
+
+import avatar from './../assets/avatar.png';
+
+import f1 from './../assets/films/film-1.jpg';
+import f2 from './../assets/films/film-2.jpg';
+import f3 from './../assets/films/film-3.jpg';
+import f4 from './../assets/films/film-4.jpg';
+import f5 from './../assets/films/film-5.jpg';
+import f6 from './../assets/films/film-6.jpg';
+import f7 from './../assets/films/film-7.jpg';
+
 // utils
 
 const account = {
   displayName: 'Nom Postnom',
   email: 'demo@exact.tv',
-  photoURL: './../assets/avatar.png'
+  photoURL: avatar
 };
 
 
@@ -138,13 +149,13 @@ const films = [...Array(24)].map((_, index) => ({
     price: faker.commerce.price(100, 200, 0, '$'),
     discount: faker.commerce.price(10, 20, 0, '$'),
     cover: sample([
-      `./../assets/films/film-1.jpg`,
-      `./../assets/films/film-2.jpg`,
-      `./../assets/films/film-3.jpg`,
-      `./../assets/films/film-4.jpg`,
-      `./../assets/films/film-5.jpg`,
-      `./../assets/films/film-6.jpg`,
-      `./../assets/films/film-7.jpg`,
+      f1,
+      f2,
+      f3,
+      f4,
+      f5,
+      f6,
+      f7,
     ]),
     screenShots: sample([
       faker.image.imageUrl(400, 290), 

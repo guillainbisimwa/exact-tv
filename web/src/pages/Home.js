@@ -1,9 +1,11 @@
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Button, Container, Stack, Typography } from '@mui/material';
+import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
 import Iconify from '../components/Iconify';
+import { films } from '../_mocks_';
+import FilmCard from '../sections/@Home/Catalog/Films';
 
 // ----------------------------------------------------------------------
 
@@ -24,6 +26,12 @@ const Home =() =>{
             New Post
           </Button>
         </Stack>
+
+        <Grid container spacing={3}>
+          {films.map((film, index) => (
+            <FilmCard key={film.id} film={film} index={index} />
+          ))}
+        </Grid>
 
       </Container>
     </Page>
