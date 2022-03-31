@@ -8,7 +8,7 @@ import Iconify from '../../../components/Iconify';
 
 const RootStyle = styled('div')(({ theme }) => ({
   '& .MuiAutocomplete-root': {
-    width: 200,
+    width: "100%",
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.easeInOut,
       duration: theme.transitions.duration.shorter
@@ -36,7 +36,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 const SearchFilm = ({ films }) => {
   return (
-    <RootStyle>
+    <RootStyle >
       <Autocomplete
         size="small"
         disablePortal
@@ -46,7 +46,7 @@ const SearchFilm = ({ films }) => {
         renderInput={(params) => (
           <TextField
             {...params}
-            placeholder="Search film..."
+            placeholder="Recherche film..."
             InputProps={{
               ...params.InputProps,
               startAdornment: (

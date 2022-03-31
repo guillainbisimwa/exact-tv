@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Button, Container, Grid, Stack, Typography } from '@mui/material';
+import { Button, Container, Grid, Stack, Typography, Pagination } from '@mui/material';
 // components
 import Page from '../components/Page';
 import Iconify from '../components/Iconify';
@@ -16,16 +16,30 @@ const Home =() =>{
   return (
     <Page title="Exact Tv">
       <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+      <Grid container mb={2} spacing={0.5}>
+        <Grid item xs={12} md={3} sm={12} >
           <Typography variant="h4" gutterBottom>
             Catalogue
           </Typography>
+        </Grid>
 
-            <GenreSort options={genre} />
-            <CategorySort options={categories} />
-            <SearchFilm films={films} />
+        <Grid item xs={12} md={3} sm={4} >
+          <GenreSort  options={genre} sx={{ width: "100%"}}/>
+        </Grid>
 
-        </Stack>
+        <Grid item xs={12} md={3} sm={4} >
+          <CategorySort options={categories} />  
+        </Grid>
+
+        <Grid item xs={12} md={3} sm={4} >
+          <SearchFilm films={films} />
+        </Grid>
+
+           
+           
+
+        </Grid>
+        
 
         <Grid container spacing={3}>
           {films.map((film, index) => (
@@ -34,6 +48,8 @@ const Home =() =>{
         </Grid>
 
       </Container>
+
+    
     </Page>
   );
 };

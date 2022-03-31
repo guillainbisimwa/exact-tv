@@ -7,7 +7,7 @@ import { MenuItem, TextField } from '@mui/material';
 
 const CategorySort = ({ options, onSort }) => {
   return (
-    <TextField select size="small" value="Film" onChange={onSort}>
+    <TextField sx={{ width: "100%"}} select size="small" value="Film" onChange={onSort}>
       {options.map((option) => (
         <MenuItem key={option.id} value={option.label}>
           {option.label}

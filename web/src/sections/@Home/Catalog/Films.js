@@ -7,7 +7,7 @@ import { Box, Link, Card, Grid, Typography, CardContent } from '@mui/material';
 
 import Iconify from '../../../components/Iconify';
 import { fYear } from '../../../Utils/formatTime';
-// import SvgIconStyle from '../../../components/SvgIconStyle';
+import SvgIconStyle from '../../../components/SvgIconStyle';
 // ----------------------------------------------------------------------
 
 const CardMediaStyle = styled('div')({
@@ -105,7 +105,7 @@ const FilmCard = ({ film, index }) => {
         >
           {/* <SvgIconStyle
             color="paper"
-            src="/static/icons/shape-avatar.svg"
+            src="ss"
             sx={{
               width: 80,
               height: 36,
@@ -114,8 +114,8 @@ const FilmCard = ({ film, index }) => {
               position: 'absolute',
               ...((latestPostLarge || latestPost) && { display: 'none' })
             }}
-          />
-          <AvatarStyle
+          /> */}
+          {/* <AvatarStyle
             alt="name"
             src="xxxx"
             sx={{
