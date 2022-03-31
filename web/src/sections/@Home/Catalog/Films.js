@@ -134,7 +134,7 @@ const FilmCard = ({ film, index }) => {
 
         <CardContent
           sx={{
-            pt: 4,
+            pt: 1,
             ...((latestPostLarge || latestPost) && {
               bottom: 0,
               width: '100%',

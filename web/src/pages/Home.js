@@ -24,7 +24,7 @@ const Home =() =>{
         </Grid>
 
         <Grid item xs={12} md={3} sm={4} >
-          <GenreSort  options={genre} sx={{ width: "100%"}}/>
+          <GenreSort  options={genre} />
         </Grid>
 
         <Grid item xs={12} md={3} sm={4} >
@@ -34,22 +34,14 @@ const Home =() =>{
         <Grid item xs={12} md={3} sm={4} >
           <SearchFilm films={films} />
         </Grid>
-
-           
-           
-
         </Grid>
-        
 
         <Grid container spacing={3}>
           {films.map((film, index) => (
             <FilmCard key={film.id} film={film} index={index} />
           ))}
         </Grid>
-
       </Container>
-
-    
     </Page>
   );
 };
