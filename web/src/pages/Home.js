@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Button, Container, Grid, Stack, Typography, Pagination } from '@mui/material';
+import { Box, Container, Grid, Stack, Typography, Pagination } from '@mui/material';
 // components
 import Page from '../components/Page';
 import Iconify from '../components/Iconify';
@@ -9,10 +9,24 @@ import FilmCard from '../sections/@Home/Catalog/Films';
 import GenreSort from '../sections/@Home/Catalog/GenreSort';
 import CategorySort from '../sections/@Home/Catalog/CategorySort';
 import SearchFilm from '../sections/@Home/Catalog/SearchFilm';
+import { useState } from 'react';
+import usePagination from '../hooks/Pagination';
 
 // ----------------------------------------------------------------------
 
-const Home =() =>{
+const Home =() => {
+
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 7;
+
+  const count = Math.ceil(films.length / PER_PAGE);
+  const _DATA = usePagination(films, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
+
   return (
     <Page title="Exact Tv">
       <Container>
@@ -37,9 +51,23 @@ const Home =() =>{
         </Grid>
 
         <Grid container spacing={3}>
-          {films.map((film, index) => (
+         
+          {_DATA.currentData().map((film, index) => (
             <FilmCard key={film.id} film={film} index={index} />
           ))}
+        </Grid>
+
+        <Grid item xs={12} mt={3}>
+    
+          <Pagination
+            color="primary"
+            count={count}
+            size="large"
+            page={page}
+            variant="outlined"
+            onChange={handleChange}
+          />
+
         </Grid>
       </Container>
     </Page>
