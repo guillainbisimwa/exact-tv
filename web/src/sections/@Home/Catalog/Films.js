@@ -23,6 +23,7 @@ const TitleStyle = styled(Link)({
   WebkitBoxOrient: 'vertical'
 });
 
+
 // const AvatarStyle = styled(Avatar)(({ theme }) => ({
 //   zIndex: 9,
 //   width: 32,

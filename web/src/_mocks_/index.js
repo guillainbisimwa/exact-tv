@@ -143,7 +143,7 @@ const films = [...Array(24)].map((_, index) => ({
     ]),
     userId:  actors[index].id,
     productionHouseId: productionHouse[index].id,
-    productionHousesId: sample([productionHouse[index].id, productionHouse[index].id, productionHouse[index].id,]),
+    productionHousesId: sample([productionHouse[index].id, productionHouse[index].id, productionHouse[index].id]),
     urlTrailer: "https://www.youtube.com/watch?v=Uw4P646FUSI",
     urlFullFilm: "https://www.youtube.com/watch?v=Uw4P646FUSI",
     price: faker.commerce.price(100, 200, 0, '$'),

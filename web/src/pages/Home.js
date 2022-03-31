@@ -11,6 +11,7 @@ import CategorySort from '../sections/@Home/Catalog/CategorySort';
 import SearchFilm from '../sections/@Home/Catalog/SearchFilm';
 import { useState } from 'react';
 import usePagination from '../hooks/Pagination';
+import Banner from '../sections/@Home/Banner/Banner';
 
 // ----------------------------------------------------------------------
 
@@ -28,8 +29,14 @@ const Home =() => {
   };
 
   return (
-    <Page title="Exact Tv">
+    <Page title="Exact Tv | Accueil">
       <Container>
+    
+
+      {films.slice(0,1).map((film, index) => (
+          <Banner key={film.id} film={film} index={index} />
+      ))}
+
       <Grid container mb={2} spacing={0.5}>
         <Grid item xs={12} md={3} sm={12} >
           <Typography variant="h4" gutterBottom>
