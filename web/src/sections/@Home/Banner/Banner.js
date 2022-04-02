@@ -77,6 +77,16 @@ const Banner = ({film, index }) => {
             ))}
           </InfoStyle>
 
+        <Typography  color="#aaa" mt={4} sx={{
+            display: '-webkit-box',
+            overflow: 'hidden',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: 3,
+            width: "25%"
+        }}
+        gutterBottom
+        variant="body1"> {details} </Typography>
+
     </Grid>
   );
 };
