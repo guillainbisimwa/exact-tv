@@ -48,7 +48,7 @@ const Banner = ({film, index }) => {
     const [studio, setStudio] = useState(productionHouse.find((obj, index)=> obj.id === productionHouseId));
     return (
     <Grid container>
-      <Grid item xs={3} alignSelf="center" >
+      <Grid item xs={12} sm={12} md={3} alignSelf="center" >
         <Typography variant='h6' color="#aaa" >Nouveau</Typography>
         <Typography variant='h3' fontWeight="bold" color="#fff" >{title}</Typography>
         <Typography variant='h6' color="#aaa" >{studio.name} Studio</Typography>
@@ -91,13 +91,16 @@ const Banner = ({film, index }) => {
         variant="body1"> {details} </Typography>
 
       </Grid>
-      <Grid item xs={7} p={4} alignContent="center" position="relative" mb={5} style={{ height: 400, }}>
-          <img src={pub} alt="log" style={{height: 400, position: "absolute", left: 200, zIndex:1 }} />
+      <Grid item sm={6} md={7}  alignContent="center" position="relative" mb={5} sx={{
+          display: { xs: 'none', sm: 'none', md: 'block' },
+         height:400
+        }}>
+          <img src={pub} alt="log" style={{height: 400, position: "absolute", left: 150, zIndex:1 }} />
           <Box style={{ height: 400, width: 400, borderRadius: "50%", backgroundColor: "#fff", position: "absolute",
-          top: 0, right: 100 }}></Box>
+          top: 0, right: 130 }}></Box>
       </Grid>
 
-      <Grid item xs={2} border={1} >
+      <Grid item xs={12} sm={12} md={2} border={1} >
 
       </Grid>
     </Grid>
