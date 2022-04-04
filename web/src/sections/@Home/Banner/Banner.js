@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Grid, Box, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
@@ -49,7 +50,7 @@ const Banner = ({film, index, films }) => {
     const [studio, setStudio] = useState(productionHouse.find((obj, index)=> obj.id === productionHouseId));
     return (
     <Grid container>
-      <Grid item xs={12} sm={12} md={3} alignSelf="center" >
+      <Grid item xs={12} sm={12} md={3} alignSelf="center" zIndex={1}>
         <Typography variant='h6' color="#aaa" >Nouveau</Typography>
         <Typography variant='h3' fontWeight="bold" color="#fff" >{title}</Typography>
         <Typography variant='h6' color="#aaa" >{studio.name} Studio</Typography>
