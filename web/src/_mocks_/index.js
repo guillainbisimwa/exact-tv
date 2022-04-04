@@ -11,6 +11,9 @@ import f5 from './../assets/films/film-5.jpg';
 import f6 from './../assets/films/film-6.jpg';
 import f7 from './../assets/films/film-7.jpg';
 
+import pub1 from './../assets/films/pub-2.png';
+import pub2 from './../assets/films/pub-2.png';
+
 // utils
 
 const account = {
@@ -166,7 +169,11 @@ const films = [...Array(24)].map((_, index) => ({
     status:  faker.datatype.boolean(),
     stars: faker.commerce.price(0, 5),
     competitions: competitions[index].id,
-    created :faker.date.between()
+    created :faker.date.between(),
+    pub: sample([
+      pub1,
+      pub2
+    ])
   })
 );
 

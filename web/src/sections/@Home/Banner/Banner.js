@@ -38,14 +38,17 @@ const Banner = ({film, index }) => {
         status,
         stars,
         competitions,
-        created}   = film;
+        created,
+        pub
+      }   = film;
     
     const mainFilm = index === 0;
     const otherFilm = index === 1 || index === 2 || index === 3;
 
     const [studio, setStudio] = useState(productionHouse.find((obj, index)=> obj.id === productionHouseId));
     return (
-    <Grid item xs={12}>
+    <Grid container>
+      <Grid item xs={3} alignSelf="center" >
         <Typography variant='h6' color="#aaa" >Nouveau</Typography>
         <Typography variant='h3' fontWeight="bold" color="#fff" >{title}</Typography>
         <Typography variant='h6' color="#aaa" >{studio.name} Studio</Typography>
@@ -82,11 +85,21 @@ const Banner = ({film, index }) => {
             overflow: 'hidden',
             WebkitBoxOrient: 'vertical',
             WebkitLineClamp: 3,
-            width: "25%"
+            width: "100%"
         }}
         gutterBottom
         variant="body1"> {details} </Typography>
 
+      </Grid>
+      <Grid item xs={7} p={4} alignContent="center" border={1} position="relative" mb={5}>
+          <img src={pub} alt="log" style={{height: 300, }} />
+          <Box style={{ height: 400, width: 400, borderRadius: "50%", backgroundColor: "#fff", position: "absolute",
+          top: 0, right: 100 }}></Box>
+      </Grid>
+
+      <Grid item xs={2} border={1} >
+
+      </Grid>
     </Grid>
   );
 };
