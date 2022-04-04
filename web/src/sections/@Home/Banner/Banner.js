@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 
 import { productionHouse } from '../../../_mocks_';
 import Iconify from '../../../components/Iconify';
+import FilmsBanner from './FilmsBanner';
 
 const InfoStyle = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -14,7 +15,7 @@ const InfoStyle = styled('div')(({ theme }) => ({
     color: theme.palette.text.disabled
   }));
 
-const Banner = ({film, index }) => {
+const Banner = ({film, index, films }) => {
     const {
         id,
         title,
@@ -100,8 +101,12 @@ const Banner = ({film, index }) => {
           top: 0, right: 130 }}></Box>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={2} border={1} >
-
+      <Grid item xs={12} sm={12} md={2} mb={5} zIndex={1}  sx={{
+          display: { xs: 'none', sm: 'none', md: 'block' }
+        }}>
+        {films.map((film, index) => (
+            <FilmsBanner key={film.id} index={0} film={film} />
+          ))}
       </Grid>
     </Grid>
   );

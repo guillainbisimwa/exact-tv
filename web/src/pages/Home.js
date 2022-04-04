@@ -34,7 +34,7 @@ const Home =() => {
     
 
       {films.slice(0,1).map((film, index) => (
-          <Banner key={film.id} film={film} index={index} />
+          <Banner key={film.id} film={film} index={index} films={films.slice(1,4)}/>
       ))}
 
       <Grid container mb={2} spacing={0.5}>
