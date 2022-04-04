@@ -91,8 +91,8 @@ const Banner = ({film, index }) => {
         variant="body1"> {details} </Typography>
 
       </Grid>
-      <Grid item xs={7} p={4} alignContent="center" border={1} position="relative" mb={5}>
-          <img src={pub} alt="log" style={{height: 300, }} />
+      <Grid item xs={7} p={4} alignContent="center" position="relative" mb={5} style={{ height: 400, }}>
+          <img src={pub} alt="log" style={{height: 400, position: "absolute", left: 200, zIndex:1 }} />
           <Box style={{ height: 400, width: 400, borderRadius: "50%", backgroundColor: "#fff", position: "absolute",
           top: 0, right: 100 }}></Box>
       </Grid>

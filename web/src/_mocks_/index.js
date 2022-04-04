@@ -11,8 +11,14 @@ import f5 from './../assets/films/film-5.jpg';
 import f6 from './../assets/films/film-6.jpg';
 import f7 from './../assets/films/film-7.jpg';
 
-import pub1 from './../assets/films/pub-2.png';
-import pub2 from './../assets/films/pub-2.png';
+import pub1 from './../assets/films/pub-1.png';
+import pub3 from './../assets/films/pub-3.png';
+import pub5 from './../assets/films/pub-5.png';
+import pub6 from './../assets/films/pub-6.png';
+import pub7 from './../assets/films/pub-7.png';
+import pub8 from './../assets/films/pub-8.png';
+import pub11 from './../assets/films/pub-11.png';
+import pub13 from './../assets/films/pub-13.png';
 
 // utils
 
@@ -172,7 +178,13 @@ const films = [...Array(24)].map((_, index) => ({
     created :faker.date.between(),
     pub: sample([
       pub1,
-      pub2
+      pub3,
+      pub5,
+      pub6,
+      pub7,
+      pub8,
+      pub11,
+      pub13,
     ])
   })
 );
