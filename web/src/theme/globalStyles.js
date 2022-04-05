@@ -68,6 +68,21 @@ export default function GlobalStyles() {
         '.blur-up.lazyloaded ': {
           WebkitFilter: 'blur(0)',
           filter: 'blur(0)'
+        },
+      '.css-ij9k62-MuiInputBase-root-MuiOutlinedInput-root': {
+        background: "#e5dacb"
+        },
+        '.css-156u1v2-MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall': {
+        background: "#e5dacb"
+        },
+        '.MuiPagination-outlined ul li button.Mui-selected': {
+          background: "#fff" 
+        },
+        '.MuiPagination-outlined ul li button:hover': {
+          background: "#fff" 
+        },
+        '.MuiPagination-outlined ul li button': {
+          background: "#b99c90" 
         }
       }}
     />
