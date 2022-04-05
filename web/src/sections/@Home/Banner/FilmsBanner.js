@@ -6,9 +6,12 @@ import { alpha, styled } from '@mui/material/styles';
 import { Box, Link, Card, Grid, Typography, CardContent } from '@mui/material';
 // utils
 
+import { motion } from 'framer-motion';
+
 import Iconify from '../../../components/Iconify';
 import { fYear } from '../../../Utils/formatTime';
 import SvgIconStyle from '../../../components/SvgIconStyle';
+import { varBounceIn, varBounceInRight } from '../../../components/animate';
 // ----------------------------------------------------------------------
 
 const CardMediaStyle = styled('div')({
@@ -76,6 +79,7 @@ const FilmCard = ({ film, index }) => {
   return (
     <Grid item xs={12} mt={1}>
       <Card sx={{ position: 'relative' }} >
+      <motion.div variants={varBounceIn}>
         <CardMediaStyle
           sx={{
             ...((latestPostLarge || latestPost) && {
@@ -123,7 +127,7 @@ const FilmCard = ({ film, index }) => {
           <TitleStyle
             to="#"
             color="inherit"
-           // variant="subtitle3"
+            variant="subtitle3"
             underline="hover"
             component={RouterLink}
             sx={{
@@ -162,6 +166,7 @@ const FilmCard = ({ film, index }) => {
             ))}
           </InfoStyle>
         </CardContent>
+        </motion.div>
       </Card>
     </Grid>
   );

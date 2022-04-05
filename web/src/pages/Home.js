@@ -13,6 +13,7 @@ import SearchFilm from '../sections/@Home/Catalog/SearchFilm';
 import { useState } from 'react';
 import usePagination from '../hooks/Pagination';
 import Banner from '../sections/@Home/Banner/Banner';
+import { MotionContainer } from '../components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -32,6 +33,7 @@ const Home =() => {
   return (
     <Page title="Exact Tv | Accueil">
       <Container>
+      <MotionContainer initial="initial" open>
     
 
       {films.slice(0,1).map((film, index) => (
@@ -77,6 +79,7 @@ const Home =() => {
           />
 
         </Grid>
+        </MotionContainer>
       </Container>
     </Page>
   );
