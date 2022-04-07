@@ -60,8 +60,8 @@ const HomeNavbar = ({ onOpenSidebar }) =>{
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
           <LanguagePopover />
-          <AccountPopover />
           <Searchbar />
+          <AccountPopover />
         </Stack>
       </ToolbarStyle>
     </RootStyle>
