@@ -42,7 +42,7 @@ const HomeNavbar = ({ onOpenSidebar }) =>{
           onClick={onOpenSidebar}
           sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}
         >
-          <Iconify icon="eva:menu-2-fill" />
+          <Iconify icon="eva:menu-2-fill" sx={{ color: "#fff"}} />
         </IconButton>
 
         <Stack direction="row" alignItems="center" 
