@@ -10,6 +10,11 @@ const sidebarConfig = [
     
   },
   {
+    title: 'Faire un don',
+    path: '/exact/Populaires',
+    
+  },
+  {
     title: 'Films',
     path: '/exact/films',
    

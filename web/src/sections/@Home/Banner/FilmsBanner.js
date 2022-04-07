@@ -77,7 +77,7 @@ const FilmCard = ({ film, index }) => {
   const latestPost = index === 1 || index === 2;
 
   return (
-    <Grid item xs={12} mt={1}>
+    <Grid item xs={6} sm={6} md={12} p={1}>
       <Card sx={{ position: 'relative' }} >
       <motion.div variants={varBounceIn}>
         <CardMediaStyle

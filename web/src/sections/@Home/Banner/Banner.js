@@ -108,7 +108,7 @@ const Banner = ({film, index, films }) => {
       </Grid>
 
       <Grid item xs={12} sm={12} md={2} mb={5} zIndex={1}  sx={{
-          display: { xs: 'none', sm: 'none', md: 'block' }
+          display: { xs: 'flex', sm: 'flex', md: 'block' }
         }}>
         {films.map((film, index) => (
             <FilmsBanner key={film.id} index={0} film={film} />
