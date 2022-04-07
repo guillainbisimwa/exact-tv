@@ -46,7 +46,7 @@ const HomeNavbar = ({ onOpenSidebar }) =>{
         </IconButton>
 
         <Stack direction="row" alignItems="center" 
-          sx={{ xs: 0.5, sm: 1.5, display: { lg: 'contents', xs: 'none'  } }}>
+          sx={{ xs: 0.5, sm: 1.5, display: {  xs: 'contents'  } }}>
           <Logo />
         </Stack>
 
