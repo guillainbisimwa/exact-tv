@@ -14,6 +14,7 @@ import { useState } from 'react';
 import usePagination from '../hooks/Pagination';
 import Banner from '../sections/@Home/Banner/Banner';
 import { MotionContainer } from '../components/animate';
+import PopularFilms from '../sections/@Home/Popular/PopularFilms';
 
 // ----------------------------------------------------------------------
 
@@ -40,9 +41,9 @@ const Home =() => {
           <Banner key={film.id} film={film} index={index} films={films.slice(1,4)}/>
       ))}
 
-      <Grid container mb={2} spacing={0.5}>
+      <Grid container mb={5} spacing={0.5}>
         <Grid item xs={12} md={3} sm={12} >
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" color="white" gutterBottom>
             Catalogue
           </Typography>
         </Grid>
@@ -58,7 +59,7 @@ const Home =() => {
         <Grid item xs={12} md={3} sm={4} >
           <SearchFilm films={films} />
         </Grid>
-        </Grid>
+      </Grid>
 
         <Grid container spacing={3}>
          
@@ -78,6 +79,27 @@ const Home =() => {
             onChange={handleChange}
           />
 
+        </Grid>
+
+
+        <Grid container mt={10} mb={5} spacing={0.5} justifyContent="space-between">
+        <Grid item xs={12} md={3} sm={12} >
+          <Typography variant="h4" color="white" gutterBottom>
+            Popular Films
+          </Typography>
+        </Grid>
+
+       
+        <Grid item xs={12} md={3} sm={4} >
+          <SearchFilm films={films} />
+        </Grid>
+      </Grid>
+
+        <Grid container spacing={3}>
+         
+          {films.slice(0,3).map((film, index) => (
+            <PopularFilms key={film.id} film={film} index={index} />
+          ))}
         </Grid>
         </MotionContainer>
       </Container>
