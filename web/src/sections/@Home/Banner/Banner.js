@@ -110,9 +110,11 @@ const Banner = ({film, index, films }) => {
       <Grid item xs={12} sm={12} md={2} mb={5} zIndex={1}  sx={{
           display: { xs: 'flex', sm: 'flex', md: 'block' }
         }}>
+          <Grid container>
         {films.map((film, index) => (
             <FilmsBanner key={film.id} index={0} film={film} />
           ))}
+          </Grid>
       </Grid>
     </Grid>
   );
