@@ -13,8 +13,8 @@ const ListItemStyle = styled((props) => <ListItemButton alignItems='flex-start' 
     height: 48,
     position: 'relative',
     textTransform: 'capitalize',
-    paddingLeft: theme.spacing(6),
-    paddingRight: theme.spacing(3.5),
+    paddingLeft: theme.spacing(3.5),
+    // paddingRight: theme.spacing(3.5),
     color: theme.palette.text.disabled,
   })
 );

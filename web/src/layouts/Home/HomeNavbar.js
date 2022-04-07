@@ -40,7 +40,7 @@ const HomeNavbar = ({ onOpenSidebar }) =>{
       <ToolbarStyle>
         <IconButton
           onClick={onOpenSidebar}
-          sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}
+          sx={{ mr: 1, color: 'text.primary', display: { sm: 'none' } }}
         >
           <Iconify icon="eva:menu-2-fill" sx={{ color: "#fff"}} />
         </IconButton>
@@ -51,7 +51,7 @@ const HomeNavbar = ({ onOpenSidebar }) =>{
         </Stack>
 
         <Stack direction="row" alignItems="center" 
-          sx={{ xs: 0.5, sm: 1.5, display: { lg: 'contents', xs: 'none'  } }}>
+          sx={{ xs: 0.5, sm: 1.5, display: { sm: 'contents', xs: 'none'  } }}>
           <NavSection navConfig={sidebarConfig} />
         </Stack>
 
